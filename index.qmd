@@ -33,7 +33,9 @@ format:
 - Transform data into a **strategic banking asset**  
 - Eliminate **data silos** and enable **integrated decision-making**  
 - Build a **scalable, governed, and AI-ready organization**
+
 ## The Core Problem: Data Silos {.smaller}
+
 - **Fragmented systems across:**
   - Core banking  
   - CRM  
