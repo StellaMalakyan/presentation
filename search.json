@@ -1,23 +1,107 @@
 [
   {
-    "objectID": "index.html#objective",
-    "href": "index.html#objective",
+    "objectID": "index.html#executive-summary",
+    "href": "index.html#executive-summary",
     "title": "Citibike Analysis",
-    "section": "Objective",
-    "text": "Objective\n\nTransform data into a strategic banking asset\n\nEliminate data silos and enable integrated decision-making\n\nBuild a scalable, governed, and AI-ready organization"
+    "section": "1. Executive Summary",
+    "text": "1. Executive Summary\n\n\nThe Vision\nTransforming raw, unstructured ride logs into an automated spatial-analytics ecosystem that powers interactive urban-mobility insights for Jersey City (2025–2026).\nPrimary Core Deliverables\n\nData Pipeline: Multi-source ETL (Citi Bike + Weather API + GeoJSON).\nSpatial Processing: Python vector overlays & PostGIS spatial joins.\nEnterprise Storage: Dockerized PostgreSQL with spatial indexing.\nVisual Analytics: High-performance Tableau Dashboard (.hyper).\n\n\nKey Project Highlights\n\n100% Automated ingestion of multi-year monthly trip archives.\nSpatial Integration: Mapped every trip to exact neighborhood polygons.\nZero Query Latency: Optimized SQL Materialized View for Tableau."
   },
   {
-    "objectID": "index.html#the-core-problem-data-silos",
-    "href": "index.html#the-core-problem-data-silos",
+    "objectID": "index.html#business-problem-opportunity",
+    "href": "index.html#business-problem-opportunity",
     "title": "Citibike Analysis",
-    "section": "The Core Problem: Data Silos",
-    "text": "The Core Problem: Data Silos\n\nFragmented systems across:\n\nCore banking\n\nCRM\n\nRisk\n\nMarketing\n\nOther Sources\n\nConsequences:\n\nInconsistent KPIs\n\nSlow decision-making\n\nPoor customer experience\n\nLimited AI capability\nMissing Single Source of Truth"
+    "section": "2. Business Problem & Opportunity",
+    "text": "2. Business Problem & Opportunity\n\nHow does weather impact urban bike-share demand across different neighborhoods and user segments?\n\n\n\nOperational Challenges\n\nFleet Imbalances: Stations empty out during morning commutes.\nUnpredictable Demand: Weather fluctuations affect Casual riders differently than Daily Commuters.\nRaw Data Complexity: Millions of raw coordinate points lack contextual neighborhood boundaries.\n\n\nThe Solution\nA unified data engine combining micro-mobility transactions, meteorological parameters, and geographic boundaries into a single reporting layer."
   },
   {
-    "objectID": "index.html#data-silos-in-banking",
-    "href": "index.html#data-silos-in-banking",
+    "objectID": "index.html#end-to-end-system-architecture",
+    "href": "index.html#end-to-end-system-architecture",
     "title": "Citibike Analysis",
-    "section": "Data Silos in Banking",
-    "text": "Data Silos in Banking\nShow less LinkedIn\naaaa"
+    "section": "3. End-to-End System Architecture",
+    "text": "3. End-to-End System Architecture\n┌──────────────────────────────────────────────────────────────────────────────────┐\n│                             DATA SOURCES LAYER                                   │\n│  Citi Bike Trip Archives (CSV)  │ Open-Meteo Weather API │ GeoJSON Neighborhoods │\n└────────────────────────┬───────────────────┬─────────────────────────┬───────────┘\n                         │                   │                         │\n                         ▼                   ▼                         ▼\n┌──────────────────────────────────────────────────────────────────────────────────┐\n│                         PYTHON PROCESSING ENGINE (`utils`)                       │\n│      - Deduplication, Null Handling & Schema Normalization                        │\n│      - Feature Engineering: Geodesic Distances, Durations & Time Categories     │\n│      - Spatial Analysis: GeoPandas Points-in-Polygons (`sjoin`)                   │\n└────────────────────────┬─────────────────────────────────────────┘\n                                         │\n                                         ▼\n┌──────────────────────────────────────────────────────────────────────────────────┐\n│                   DOCKERIZED POSTGRESQL / POSTGIS STORAGE                        │\n│   - Geometry Tables (`ST_Within`, `EPSG:4326`)                                    │\n│   - Materialized View (`mv_tableau_citibike_dashboard`) + GIST Indexing          │\n└────────────────────────┬─────────────────────────────────────────┘\n                                         │\n                                         ▼\n┌──────────────────────────────────────────────────────────────────────────────────┐\n│                         TABLEAU VISUAL ANALYTICS LAYER                           │\n│   - Hyper Extract (`.hyper`) for In-Memory Performance                           │\n│   - Interactive Dashboard (`mv_citibike/Dashboard1`) with Global Actions         │\n└──────────────────────────────────────────────────────────────────────────────────┘"
+  },
+  {
+    "objectID": "index.html#tech-stack-ecosystem",
+    "href": "index.html#tech-stack-ecosystem",
+    "title": "Citibike Analysis",
+    "section": "4. Tech Stack Ecosystem",
+    "text": "4. Tech Stack Ecosystem\n\n\nIngestion & Processing\n\nPython: Core scripting\npandas / NumPy: Data cleaning\nRequests API: Open-Meteo weather\nVS Code & Git: Version control\n\n\nSpatial & Database\n\nGeoPandas & Shapely: Vectors\nPostgreSQL / PostGIS: Spatial DB\nDocker: Isolated DB environment\nSQLAlchemy: ORM connectivity\n\n\nAnalytics & Viz\n\nTableau Desktop: Interactive BI\nTableau Extract (.hyper): Engine\nFolium & Plotly: Python maps\nReveal.js: Presentation engine"
+  },
+  {
+    "objectID": "index.html#automated-multi-source-ingestion",
+    "href": "index.html#automated-multi-source-ingestion",
+    "title": "Citibike Analysis",
+    "section": "5. Automated Multi-Source Ingestion",
+    "text": "5. Automated Multi-Source Ingestion\n\n\n1. Citi Bike Trip Data\n\nMulti-year script downloads monthly ZIP archives for 2025 and 2026.\nExtracts ride_id, start/end timestamps, station names, coordinates, and member_casual user tier.\n\n2. Historical Weather API\n\nFetches daily metrics from Open-Meteo.\nIngests temperature, precipitation, rainfall, snowfall, and wind speed.\n\n\n3. GeoJSON Geographic Boundaries\n\nLoads official polygon geometries for Jersey City neighborhoods.\nStandardizes Coordinate Reference System (CRS) to EPSG:4326 for precise spatial matching.\n\nWeb Sources ──&gt; Dynamic Extractor ──&gt; Validation ──&gt; Staging Dataframes"
+  },
+  {
+    "objectID": "index.html#pipeline-engineering-feature-extraction",
+    "href": "index.html#pipeline-engineering-feature-extraction",
+    "title": "Citibike Analysis",
+    "section": "6. Pipeline Engineering & Feature Extraction",
+    "text": "6. Pipeline Engineering & Feature Extraction\nModular helper functions in utils.py automate data transformation and feature enrichment:\n\n\nData Hygiene\n\nPurges OS metadata junk (__MACOSX).\nDrops invalid coordinate records.\nDeduplicates rows on primary key ride_id.\n\nTime Dimensions\n\nExtracted: Year, Quarter, Month, Day of Week, Hour, and Weekend/Weekday flags.\n\n\nEngineered Features\n\nRide Duration: Derived from timestamp delta in minutes.\nGeodesic Distance: Calculated via Haversine formula (km).\nCategorical Buckets: Short, Medium, and Long ride/distance tiers.\nWeather Flags: Freezing, Cold, Mild, and Warm temperature buckets."
+  },
+  {
+    "objectID": "index.html#python-spatial-joins-geopandas",
+    "href": "index.html#python-spatial-joins-geopandas",
+    "title": "Citibike Analysis",
+    "section": "7. Python Spatial Joins (GeoPandas)",
+    "text": "7. Python Spatial Joins (GeoPandas)\nBefore pushing data to the database, spatial coordinates were validated and joined programmatically:\n\n\nimport geopandas as gpd\n\n# Convert stations to Spatial Point Geometries\nstations_gdf = gpd.GeoDataFrame(\n    df, \n    geometry=gpd.points_from_xy(df.start_lng, df.start_lat),\n    crs=\"EPSG:4326\"\n)\n\n# Spatial Join with Neighborhood Polygons\nstations_with_neighborhood = gpd.sjoin(\n    stations_gdf,\n    neighborhoods_gdf,\n    how=\"left\",\n    predicate=\"within\"\n)\n\nWhy Python Spatial Analytics?\n\nProgrammatically assigns exact Neighborhood Names to missing station meta.\nPre-calculates spatial density clusters before database ingestion.\nPowers rapid exploratory mapping using Folium and Plotly Choropleth charts."
+  },
+  {
+    "objectID": "index.html#python-geospatial-exploratory-maps",
+    "href": "index.html#python-geospatial-exploratory-maps",
+    "title": "Citibike Analysis",
+    "section": "8. Python Geospatial Exploratory Maps",
+    "text": "8. Python Geospatial Exploratory Maps\n\n\nFolium Density Heatmaps\n\nPurpose: Identifies spatial hotspots and high-density departure corridors.\nFinding: High density concentrated around PATH stations (Grove St, Exchange Place, Newport).\n\nPlotly Express Choropleths\n\nPurpose: Aggregates total trip origin/destination counts by neighborhood boundaries.\nFinding: Waterfront neighborhoods account for over 60% of total system trips.\n\n\n┌────────────────────────────────────────────────────────┐\n│               FOLIUM DENSITY HEATMAP                   │\n│   [ High Density Hotspots at Transit Hubs ]           │\n└────────────────────────────────────────────────────────┘\n                           │\n                           ▼\n┌────────────────────────────────────────────────────────┐\n│              PLOTLY CHOROPLETH OVERLAY                 │\n│   [ Neighborhood Aggregations & Flow Distributions ]   │\n└────────────────────────────────────────────────────────┘"
+  },
+  {
+    "objectID": "index.html#containerized-spatial-database-postgis",
+    "href": "index.html#containerized-spatial-database-postgis",
+    "title": "Citibike Analysis",
+    "section": "9. Containerized Spatial Database (PostGIS)",
+    "text": "9. Containerized Spatial Database (PostGIS)\nTo build a production-ready system, data was loaded into a containerized PostgreSQL / PostGIS instance via Docker.\n\n\nCore Database Tables\n\njersey_city: Cleaned individual trip transactions (2025–2026).\njersey_weather: Daily historical weather metrics.\njersey_city_neighborhoods: Neighborhood boundary polygons.\njc_2025_stations: Station locations & geometries.\n\n\n-- Spatial Query Example in PostGIS\nSELECT \n    s.station_name, \n    n.neighborhood\nFROM jc_2025_stations s\nLEFT JOIN jersey_city_neighborhoods n\n    ON ST_Within(s.geometry, n.geometry);"
+  },
+  {
+    "objectID": "index.html#high-performance-materialized-view",
+    "href": "index.html#high-performance-materialized-view",
+    "title": "Citibike Analysis",
+    "section": "10. High-Performance Materialized View",
+    "text": "10. High-Performance Materialized View\nInstead of forcing Tableau to recalculate complex spatial joins on every filter click, a wide Materialized View was engineered at the database layer.\nCREATE MATERIALIZED VIEW mv_tableau_citibike_dashboard AS\nSELECT \n    r.ride_id, r.rideable_type, r.member_casual,\n    r.started_at, r.ended_at, r.ride_date, r.ride_year, r.ride_month, r.ride_hour,\n    r.ride_duration_minutes,\n    start_n.neighborhood AS start_neighborhood,\n    end_n.neighborhood AS end_neighborhood,\n    w.temperature_2m_mean, w.precipitation_sum\nFROM jersey_city r\nLEFT JOIN jersey_weather w ON r.ride_date = w.date\nLEFT JOIN jersey_city_neighborhoods start_n ON ST_Within(r.start_geom, start_n.geometry)\nLEFT JOIN jersey_city_neighborhoods end_n ON ST_Within(r.end_geom, end_n.geometry);\nDatabase Optimization Strategy\n\nGIST Spatial Indexes applied on point and polygon geometries.\nB-Tree Indexes added on filter dimensions (ride_date, member_casual, neighborhood)."
+  },
+  {
+    "objectID": "index.html#tableau-architecture-extract-engine",
+    "href": "index.html#tableau-architecture-extract-engine",
+    "title": "Citibike Analysis",
+    "section": "11. Tableau Architecture & Extract Engine",
+    "text": "11. Tableau Architecture & Extract Engine\n\n\nNative Database Integration\n\nDirect PostgreSQL connection targeting mv_tableau_citibike_dashboard.\nDecouples SQL feature engineering from the visual dashboard.\n\nTableau .hyper Extract\n\nDatabase results stored in a local columnar Hyper Extract.\nAccelerates query execution for complex visual filtering.\nEnables lightning-fast rendering speed.\n\n\nDashboard Interactivity Setup\n\n5 Global Filters: Member Tier, Bike Type, Neighborhood, Temp Bucket, Date Range.\nDashboard Actions: Cross-filtering across maps and bar charts upon user interaction.\nGranular Detail Drill-down: Row-level verification table."
+  },
+  {
+    "objectID": "index.html#tableau-dashboard-architecture",
+    "href": "index.html#tableau-dashboard-architecture",
+    "title": "Citibike Analysis",
+    "section": "12. Tableau Dashboard Architecture",
+    "text": "12. Tableau Dashboard Architecture\nLayout Breakdown of mv_citibike/Dashboard1\n\n\nExecutive & Time Modules\n\nHeader Control Bar: Container housing global interactive filters.\nKPI Cards: Total Trips, Avg Duration, Avg Distance, Member Share, Rain Impact.\nTime Analytics: Daily ride volume, hourly commuting curves, day-of-week patterns.\n\n\nSpatial & Weather Modules\n\nGeographic Maps: Start & End Neighborhood spatial maps.\nWeather Sensitivity: Ride counts vs. Temperature scatter plot & precipitation breakdown.\nGranular Detail View: Raw transaction table for deep verification."
+  },
+  {
+    "objectID": "index.html#key-business-operational-insights",
+    "href": "index.html#key-business-operational-insights",
+    "title": "Citibike Analysis",
+    "section": "13. Key Business & Operational Insights",
+    "text": "13. Key Business & Operational Insights\n\n\nUser Persona Behavioral Split\n\nAnnual Members: Predictable commute spikes at 8 AM & 5 PM on weekdays. Highly resilient to rain and low temperatures.\nCasual Riders: Peak on weekend afternoons for longer leisure trips. High elasticity to freezing weather and precipitation.\n\n\nRebalancing & Fleet Optimization\n\nNet Flow Imbalance: Heavy morning net departures at residential hubs and arrivals at PATH transit stations.\nElectric vs. Classic: Electric bikes exhibit 28% higher average distance, showing strong commuter preference."
+  },
+  {
+    "objectID": "index.html#explore-the-interactive-dashboard",
+    "href": "index.html#explore-the-interactive-dashboard",
+    "title": "Citibike Analysis",
+    "section": "14. Explore the Interactive Dashboard",
+    "text": "14. Explore the Interactive Dashboard\nThe complete interactive visual dashboard is published and accessible live on Tableau Public.\n🔗 Live Tableau Dashboard\n👉 Click Here to Open the Interactive Tableau Dashboard"
+  },
+  {
+    "objectID": "index.html#conclusion-thank-you",
+    "href": "index.html#conclusion-thank-you",
+    "title": "Citibike Analysis",
+    "section": "15. Conclusion & Thank You",
+    "text": "15. Conclusion & Thank You\n\n\nArchitectural Takeaway\nThis project demonstrates a full End-to-End Data Analytics Pipeline:\nWeb Data → Python ETL → Spatial Joins → PostGIS → Materialized View → Tableau Extract → Interactive Dashboard\nDecoupling data engineering from visual reporting produces a scalable, production-grade system.\n\nStella Malakyan\nData Analytics Portfolio Project\nTech Stack:\nPython · pandas · GeoPandas · Folium · PostgreSQL · PostGIS · Tableau\n\nShow less LinkedIn\naaaa"
   }
 ]

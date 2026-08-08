@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-bbe7401fe57d4b791b917637bb662036.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -152,46 +217,333 @@ Stella Malakyan
 
   <p class="date">2026-08-08</p>
 </section>
-<section id="objective" class="slide level2 smaller">
-<h2>Objective</h2>
+<section id="executive-summary" class="slide level2 smaller">
+<h2>1. Executive Summary</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<h3 id="the-vision">The Vision</h3>
+<p>Transforming raw, unstructured ride logs into an <strong>automated spatial-analytics ecosystem</strong> that powers interactive urban-mobility insights for Jersey City (2025–2026).</p>
+<h3 id="primary-core-deliverables">Primary Core Deliverables</h3>
 <ul>
-<li>Transform data into a <strong>strategic banking asset</strong><br>
-</li>
-<li>Eliminate <strong>data silos</strong> and enable <strong>integrated decision-making</strong><br>
-</li>
-<li>Build a <strong>scalable, governed, and AI-ready organization</strong></li>
+<li><strong>Data Pipeline:</strong> Multi-source ETL (Citi Bike + Weather API + GeoJSON).</li>
+<li><strong>Spatial Processing:</strong> Python vector overlays &amp; PostGIS spatial joins.</li>
+<li><strong>Enterprise Storage:</strong> Dockerized PostgreSQL with spatial indexing.</li>
+<li><strong>Visual Analytics:</strong> High-performance Tableau Dashboard (<code>.hyper</code>).</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<h3 id="key-project-highlights">Key Project Highlights</h3>
+<ul>
+<li><strong>100% Automated</strong> ingestion of multi-year monthly trip archives.</li>
+<li><strong>Spatial Integration:</strong> Mapped every trip to exact neighborhood polygons.</li>
+<li><strong>Zero Query Latency:</strong> Optimized SQL Materialized View for Tableau.</li>
+</ul>
+</div></div>
+</section>
+<section id="business-problem-opportunity" class="slide level2 smaller">
+<h2>2. Business Problem &amp; Opportunity</h2>
+<blockquote>
+<p><strong>How does weather impact urban bike-share demand across different neighborhoods and user segments?</strong></p>
+</blockquote>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="operational-challenges">Operational Challenges</h3>
+<ul>
+<li><strong>Fleet Imbalances:</strong> Stations empty out during morning commutes.</li>
+<li><strong>Unpredictable Demand:</strong> Weather fluctuations affect Casual riders differently than Daily Commuters.</li>
+<li><strong>Raw Data Complexity:</strong> Millions of raw coordinate points lack contextual neighborhood boundaries.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="the-solution">The Solution</h3>
+<p>A unified data engine combining <strong>micro-mobility transactions</strong>, <strong>meteorological parameters</strong>, and <strong>geographic boundaries</strong> into a single reporting layer.</p>
+</div></div>
+</section>
+<section id="end-to-end-system-architecture" class="slide level2 smaller">
+<h2>3. End-to-End System Architecture</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>┌──────────────────────────────────────────────────────────────────────────────────┐</span>
+<span id="cb1-2"><a></a>│                             DATA SOURCES LAYER                                   │</span>
+<span id="cb1-3"><a></a>│  Citi Bike Trip Archives (CSV)  │ Open-Meteo Weather API │ GeoJSON Neighborhoods │</span>
+<span id="cb1-4"><a></a>└────────────────────────┬───────────────────┬─────────────────────────┬───────────┘</span>
+<span id="cb1-5"><a></a>                         │                   │                         │</span>
+<span id="cb1-6"><a></a>                         ▼                   ▼                         ▼</span>
+<span id="cb1-7"><a></a>┌──────────────────────────────────────────────────────────────────────────────────┐</span>
+<span id="cb1-8"><a></a>│                         PYTHON PROCESSING ENGINE (`utils`)                       │</span>
+<span id="cb1-9"><a></a>│      - Deduplication, Null Handling &amp; Schema Normalization                        │</span>
+<span id="cb1-10"><a></a>│      - Feature Engineering: Geodesic Distances, Durations &amp; Time Categories     │</span>
+<span id="cb1-11"><a></a>│      - Spatial Analysis: GeoPandas Points-in-Polygons (`sjoin`)                   │</span>
+<span id="cb1-12"><a></a>└────────────────────────┬─────────────────────────────────────────┘</span>
+<span id="cb1-13"><a></a>                                         │</span>
+<span id="cb1-14"><a></a>                                         ▼</span>
+<span id="cb1-15"><a></a>┌──────────────────────────────────────────────────────────────────────────────────┐</span>
+<span id="cb1-16"><a></a>│                   DOCKERIZED POSTGRESQL / POSTGIS STORAGE                        │</span>
+<span id="cb1-17"><a></a>│   - Geometry Tables (`ST_Within`, `EPSG:4326`)                                    │</span>
+<span id="cb1-18"><a></a>│   - Materialized View (`mv_tableau_citibike_dashboard`) + GIST Indexing          │</span>
+<span id="cb1-19"><a></a>└────────────────────────┬─────────────────────────────────────────┘</span>
+<span id="cb1-20"><a></a>                                         │</span>
+<span id="cb1-21"><a></a>                                         ▼</span>
+<span id="cb1-22"><a></a>┌──────────────────────────────────────────────────────────────────────────────────┐</span>
+<span id="cb1-23"><a></a>│                         TABLEAU VISUAL ANALYTICS LAYER                           │</span>
+<span id="cb1-24"><a></a>│   - Hyper Extract (`.hyper`) for In-Memory Performance                           │</span>
+<span id="cb1-25"><a></a>│   - Interactive Dashboard (`mv_citibike/Dashboard1`) with Global Actions         │</span>
+<span id="cb1-26"><a></a>└──────────────────────────────────────────────────────────────────────────────────┘</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tech-stack-ecosystem" class="slide level2 smaller">
+<h2>4. Tech Stack Ecosystem</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<h3 id="ingestion-processing">Ingestion &amp; Processing</h3>
+<ul>
+<li><strong>Python:</strong> Core scripting</li>
+<li><strong>pandas / NumPy:</strong> Data cleaning</li>
+<li><strong>Requests API:</strong> Open-Meteo weather</li>
+<li><strong>VS Code &amp; Git:</strong> Version control</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<h3 id="spatial-database">Spatial &amp; Database</h3>
+<ul>
+<li><strong>GeoPandas &amp; Shapely:</strong> Vectors</li>
+<li><strong>PostgreSQL / PostGIS:</strong> Spatial DB</li>
+<li><strong>Docker:</strong> Isolated DB environment</li>
+<li><strong>SQLAlchemy:</strong> ORM connectivity</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<h3 id="analytics-viz">Analytics &amp; Viz</h3>
+<ul>
+<li><strong>Tableau Desktop:</strong> Interactive BI</li>
+<li><strong>Tableau Extract (<code>.hyper</code>):</strong> Engine</li>
+<li><strong>Folium &amp; Plotly:</strong> Python maps</li>
+<li><strong>Reveal.js:</strong> Presentation engine</li>
+</ul>
+</div></div>
+</section>
+<section id="automated-multi-source-ingestion" class="slide level2 smaller">
+<h2>5. Automated Multi-Source Ingestion</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="citi-bike-trip-data">1. Citi Bike Trip Data</h3>
+<ul>
+<li>Multi-year script downloads monthly ZIP archives for <strong>2025 and 2026</strong>.</li>
+<li>Extracts <code>ride_id</code>, start/end timestamps, station names, coordinates, and <code>member_casual</code> user tier.</li>
+</ul>
+<h3 id="historical-weather-api">2. Historical Weather API</h3>
+<ul>
+<li>Fetches daily metrics from Open-Meteo.</li>
+<li>Ingests temperature, precipitation, rainfall, snowfall, and wind speed.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="geojson-geographic-boundaries">3. GeoJSON Geographic Boundaries</h3>
+<ul>
+<li>Loads official polygon geometries for Jersey City neighborhoods.</li>
+<li>Standardizes Coordinate Reference System (CRS) to <strong><code>EPSG:4326</code></strong> for precise spatial matching.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>Web Sources ──&gt; Dynamic Extractor ──&gt; Validation ──&gt; Staging Dataframes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="pipeline-engineering-feature-extraction" class="slide level2 smaller">
+<h2>6. Pipeline Engineering &amp; Feature Extraction</h2>
+<p>Modular helper functions in <code>utils.py</code> automate data transformation and feature enrichment:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="data-hygiene">Data Hygiene</h3>
+<ul>
+<li>Purges OS metadata junk (<code>__MACOSX</code>).</li>
+<li>Drops invalid coordinate records.</li>
+<li>Deduplicates rows on primary key <code>ride_id</code>.</li>
+</ul>
+<h3 id="time-dimensions">Time Dimensions</h3>
+<ul>
+<li>Extracted: Year, Quarter, Month, Day of Week, Hour, and Weekend/Weekday flags.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="engineered-features">Engineered Features</h3>
+<ul>
+<li><strong>Ride Duration:</strong> Derived from timestamp delta in minutes.</li>
+<li><strong>Geodesic Distance:</strong> Calculated via Haversine formula (km).</li>
+<li><strong>Categorical Buckets:</strong> Short, Medium, and Long ride/distance tiers.</li>
+<li><strong>Weather Flags:</strong> Freezing, Cold, Mild, and Warm temperature buckets.</li>
+</ul>
+</div></div>
+</section>
+<section id="python-spatial-joins-geopandas" class="slide level2 smaller">
+<h2>7. Python Spatial Joins (<code>GeoPandas</code>)</h2>
+<p>Before pushing data to the database, spatial coordinates were validated and joined programmatically:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a><span class="co"># Convert stations to Spatial Point Geometries</span></span>
+<span id="cb3-4"><a></a>stations_gdf <span class="op">=</span> gpd.GeoDataFrame(</span>
+<span id="cb3-5"><a></a>    df, </span>
+<span id="cb3-6"><a></a>    geometry<span class="op">=</span>gpd.points_from_xy(df.start_lng, df.start_lat),</span>
+<span id="cb3-7"><a></a>    crs<span class="op">=</span><span class="st">"EPSG:4326"</span></span>
+<span id="cb3-8"><a></a>)</span>
+<span id="cb3-9"><a></a></span>
+<span id="cb3-10"><a></a><span class="co"># Spatial Join with Neighborhood Polygons</span></span>
+<span id="cb3-11"><a></a>stations_with_neighborhood <span class="op">=</span> gpd.sjoin(</span>
+<span id="cb3-12"><a></a>    stations_gdf,</span>
+<span id="cb3-13"><a></a>    neighborhoods_gdf,</span>
+<span id="cb3-14"><a></a>    how<span class="op">=</span><span class="st">"left"</span>,</span>
+<span id="cb3-15"><a></a>    predicate<span class="op">=</span><span class="st">"within"</span></span>
+<span id="cb3-16"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<h3 id="why-python-spatial-analytics">Why Python Spatial Analytics?</h3>
+<ul>
+<li>Programmatically assigns exact <strong>Neighborhood Names</strong> to missing station meta.</li>
+<li>Pre-calculates spatial density clusters before database ingestion.</li>
+<li>Powers rapid exploratory mapping using <strong>Folium</strong> and <strong>Plotly Choropleth</strong> charts.</li>
+</ul>
+</div></div>
+</section>
+<section id="python-geospatial-exploratory-maps" class="slide level2 smaller">
+<h2>8. Python Geospatial Exploratory Maps</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="folium-density-heatmaps">Folium Density Heatmaps</h3>
+<ul>
+<li><strong>Purpose:</strong> Identifies spatial hotspots and high-density departure corridors.</li>
+<li><strong>Finding:</strong> High density concentrated around PATH stations (Grove St, Exchange Place, Newport).</li>
+</ul>
+<h3 id="plotly-express-choropleths">Plotly Express Choropleths</h3>
+<ul>
+<li><strong>Purpose:</strong> Aggregates total trip origin/destination counts by neighborhood boundaries.</li>
+<li><strong>Finding:</strong> Waterfront neighborhoods account for over <strong>60%</strong> of total system trips.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>┌────────────────────────────────────────────────────────┐</span>
+<span id="cb4-2"><a></a>│               FOLIUM DENSITY HEATMAP                   │</span>
+<span id="cb4-3"><a></a>│   [ High Density Hotspots at Transit Hubs ]           │</span>
+<span id="cb4-4"><a></a>└────────────────────────────────────────────────────────┘</span>
+<span id="cb4-5"><a></a>                           │</span>
+<span id="cb4-6"><a></a>                           ▼</span>
+<span id="cb4-7"><a></a>┌────────────────────────────────────────────────────────┐</span>
+<span id="cb4-8"><a></a>│              PLOTLY CHOROPLETH OVERLAY                 │</span>
+<span id="cb4-9"><a></a>│   [ Neighborhood Aggregations &amp; Flow Distributions ]   │</span>
+<span id="cb4-10"><a></a>└────────────────────────────────────────────────────────┘</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="containerized-spatial-database-postgis" class="slide level2 smaller">
+<h2>9. Containerized Spatial Database (PostGIS)</h2>
+<p>To build a production-ready system, data was loaded into a containerized <strong>PostgreSQL / PostGIS</strong> instance via Docker.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="core-database-tables">Core Database Tables</h3>
+<ul>
+<li><code>jersey_city</code>: Cleaned individual trip transactions (2025–2026).</li>
+<li><code>jersey_weather</code>: Daily historical weather metrics.</li>
+<li><code>jersey_city_neighborhoods</code>: Neighborhood boundary polygons.</li>
+<li><code>jc_2025_stations</code>: Station locations &amp; geometries.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a></a><span class="co">-- Spatial Query Example in PostGIS</span></span>
+<span id="cb5-2"><a></a><span class="kw">SELECT</span> </span>
+<span id="cb5-3"><a></a>    s.station_name, </span>
+<span id="cb5-4"><a></a>    n.neighborhood</span>
+<span id="cb5-5"><a></a><span class="kw">FROM</span> jc_2025_stations s</span>
+<span id="cb5-6"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_city_neighborhoods n</span>
+<span id="cb5-7"><a></a>    <span class="kw">ON</span> ST_Within(s.geometry, n.geometry);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="high-performance-materialized-view" class="slide level2 smaller">
+<h2>10. High-Performance Materialized View</h2>
+<p>Instead of forcing Tableau to recalculate complex spatial joins on every filter click, a wide <strong>Materialized View</strong> was engineered at the database layer.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a></a><span class="kw">CREATE</span> <span class="kw">MATERIALIZED</span> <span class="kw">VIEW</span> mv_tableau_citibike_dashboard <span class="kw">AS</span></span>
+<span id="cb6-2"><a></a><span class="kw">SELECT</span> </span>
+<span id="cb6-3"><a></a>    r.ride_id, r.rideable_type, r.member_casual,</span>
+<span id="cb6-4"><a></a>    r.started_at, r.ended_at, r.ride_date, r.ride_year, r.ride_month, r.ride_hour,</span>
+<span id="cb6-5"><a></a>    r.ride_duration_minutes,</span>
+<span id="cb6-6"><a></a>    start_n.neighborhood <span class="kw">AS</span> start_neighborhood,</span>
+<span id="cb6-7"><a></a>    end_n.neighborhood <span class="kw">AS</span> end_neighborhood,</span>
+<span id="cb6-8"><a></a>    w.temperature_2m_mean, w.precipitation_sum</span>
+<span id="cb6-9"><a></a><span class="kw">FROM</span> jersey_city r</span>
+<span id="cb6-10"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_weather w <span class="kw">ON</span> r.ride_date <span class="op">=</span> w.<span class="dt">date</span></span>
+<span id="cb6-11"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_city_neighborhoods start_n <span class="kw">ON</span> ST_Within(r.start_geom, start_n.geometry)</span>
+<span id="cb6-12"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_city_neighborhoods end_n <span class="kw">ON</span> ST_Within(r.end_geom, end_n.geometry);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="database-optimization-strategy">Database Optimization Strategy</h3>
+<ul>
+<li><strong>GIST Spatial Indexes</strong> applied on point and polygon geometries.</li>
+<li><strong>B-Tree Indexes</strong> added on filter dimensions (<code>ride_date</code>, <code>member_casual</code>, <code>neighborhood</code>).</li>
 </ul>
 </section>
-<section id="the-core-problem-data-silos" class="slide level2 smaller">
-<h2>The Core Problem: Data Silos</h2>
+<section id="tableau-architecture-extract-engine" class="slide level2 smaller">
+<h2>11. Tableau Architecture &amp; Extract Engine</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="native-database-integration">Native Database Integration</h3>
 <ul>
-<li><strong>Fragmented systems across:</strong>
-<ul>
-<li>Core banking<br>
-</li>
-<li>CRM<br>
-</li>
-<li>Risk<br>
-</li>
-<li>Marketing<br>
-</li>
-<li>Other Sources</li>
-</ul></li>
-<li><strong>Consequences:</strong>
-<ul>
-<li>Inconsistent KPIs<br>
-</li>
-<li>Slow decision-making<br>
-</li>
-<li>Poor customer experience<br>
-</li>
-<li>Limited AI capability</li>
-<li>Missing Single Source of Truth</li>
-</ul></li>
+<li>Direct PostgreSQL connection targeting <code>mv_tableau_citibike_dashboard</code>.</li>
+<li>Decouples SQL feature engineering from the visual dashboard.</li>
 </ul>
+<h3 id="tableau-.hyper-extract">Tableau <code>.hyper</code> Extract</h3>
+<ul>
+<li>Database results stored in a local columnar Hyper Extract.</li>
+<li>Accelerates query execution for complex visual filtering.</li>
+<li>Enables lightning-fast rendering speed.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="dashboard-interactivity-setup">Dashboard Interactivity Setup</h3>
+<ul>
+<li><strong>5 Global Filters:</strong> Member Tier, Bike Type, Neighborhood, Temp Bucket, Date Range.</li>
+<li><strong>Dashboard Actions:</strong> Cross-filtering across maps and bar charts upon user interaction.</li>
+<li><strong>Granular Detail Drill-down:</strong> Row-level verification table.</li>
+</ul>
+</div></div>
 </section>
-<section id="data-silos-in-banking" class="slide level2 smaller">
-<h2>Data Silos in Banking</h2>
+<section id="tableau-dashboard-architecture" class="slide level2 smaller">
+<h2>12. Tableau Dashboard Architecture</h2>
+<h3 id="layout-breakdown-of-mv_citibikedashboard1">Layout Breakdown of <code>mv_citibike/Dashboard1</code></h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="executive-time-modules">Executive &amp; Time Modules</h3>
+<ul>
+<li><strong>Header Control Bar:</strong> Container housing global interactive filters.</li>
+<li><strong>KPI Cards:</strong> Total Trips, Avg Duration, Avg Distance, Member Share, Rain Impact.</li>
+<li><strong>Time Analytics:</strong> Daily ride volume, hourly commuting curves, day-of-week patterns.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="spatial-weather-modules">Spatial &amp; Weather Modules</h3>
+<ul>
+<li><strong>Geographic Maps:</strong> Start &amp; End Neighborhood spatial maps.</li>
+<li><strong>Weather Sensitivity:</strong> Ride counts vs.&nbsp;Temperature scatter plot &amp; precipitation breakdown.</li>
+<li><strong>Granular Detail View:</strong> Raw transaction table for deep verification.</li>
+</ul>
+</div></div>
+</section>
+<section id="key-business-operational-insights" class="slide level2 smaller">
+<h2>13. Key Business &amp; Operational Insights</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="user-persona-behavioral-split">User Persona Behavioral Split</h3>
+<ul>
+<li><strong>Annual Members:</strong> Predictable commute spikes at <strong>8 AM &amp; 5 PM</strong> on weekdays. Highly resilient to rain and low temperatures.</li>
+<li><strong>Casual Riders:</strong> Peak on <strong>weekend afternoons</strong> for longer leisure trips. High elasticity to freezing weather and precipitation.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="rebalancing-fleet-optimization">Rebalancing &amp; Fleet Optimization</h3>
+<ul>
+<li><strong>Net Flow Imbalance:</strong> Heavy morning net departures at residential hubs and arrivals at PATH transit stations.</li>
+<li><strong>Electric vs.&nbsp;Classic:</strong> Electric bikes exhibit <strong>28% higher</strong> average distance, showing strong commuter preference.</li>
+</ul>
+</div></div>
+</section>
+<section id="explore-the-interactive-dashboard" class="slide level2 smaller">
+<h2>14. Explore the Interactive Dashboard</h2>
+<p>The complete interactive visual dashboard is published and accessible live on Tableau Public.</p>
+<h3 id="live-tableau-dashboard">🔗 Live Tableau Dashboard</h3>
+<p><a href="https://public.tableau.com/views/Citibike_17235835677020/Dashboard1"><strong>👉 Click Here to Open the Interactive Tableau Dashboard</strong></a></p>
+</section>
+<section id="conclusion-thank-you" class="slide level2 smaller">
+<h2>15. Conclusion &amp; Thank You</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="architectural-takeaway">Architectural Takeaway</h3>
+<p>This project demonstrates a full <strong>End-to-End Data Analytics Pipeline</strong>:</p>
+<p><strong>Web Data → Python ETL → Spatial Joins → PostGIS → Materialized View → Tableau Extract → Interactive Dashboard</strong></p>
+<p>Decoupling data engineering from visual reporting produces a scalable, production-grade system.</p>
+</div><div class="column" style="width:40%;">
+<h3 id="stella-malakyan">Stella Malakyan</h3>
+<p><em>Data Analytics Portfolio Project</em></p>
+<p><strong>Tech Stack:</strong><br>
+Python · pandas · GeoPandas · Folium · PostgreSQL · PostGIS · Tableau</p>
+</div></div>
 <p>Show less <a href="https://www.linkedin.com/in/stella-malakyan-growth-partner/">LinkedIn</a></p>
 <p>aaaa</p>
 
