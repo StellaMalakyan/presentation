@@ -46,14 +46,14 @@
     "href": "index.html#python-geospatial-analytics-interactive-folium-heatmap",
     "title": "Citibike Analysis",
     "section": "7. Python Geospatial Analytics: Interactive Folium Heatmap",
-    "text": "7. Python Geospatial Analytics: Interactive Folium Heatmap\n\n\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook\n\n\n\nDensity & Hotspot Insights\n\nTransit Hub Concentration: Massive ride clusters concentrated around Grove Street, Exchange Place, and Newport PATH stations.\nSpatial Clusters: Identifies high-demand departure corridors across Jersey City waterfronts.\nInteractive: Zoom and pan dynamically across the live layer."
+    "text": "7. Python Geospatial Analytics: Interactive Folium Heatmap\n\n\n\n\nDensity & Hotspot Insights\n\nTransit Hub Concentration: Massive ride clusters concentrated around Grove Street, Exchange Place, and Newport PATH stations.\nSpatial Clusters: Identifies high-demand departure corridors across Jersey City waterfronts.\nInteractive: Zoom and pan dynamically across the live layer."
   },
   {
     "objectID": "index.html#year-over-year-dynamics-2025-vs-2026-ridership-trends",
     "href": "index.html#year-over-year-dynamics-2025-vs-2026-ridership-trends",
     "title": "Citibike Analysis",
     "section": "8. Year-over-Year Dynamics: 2025 vs 2026 Ridership Trends",
-    "text": "8. Year-over-Year Dynamics: 2025 vs 2026 Ridership Trends\n\n\n\n\n                            \n                                            \n\n\n\nKey Takeaways\n\nConsistent ~20% YoY Growth: Solid demand expansion across all seasonal cycles in 2026.\nSummer Commute Peaks: Peak volume exceeded 100K monthly trips during July–August 2026.\nPipeline Agility: Ingested via utils ETL engine without changing a single line of core logic."
+    "text": "8. Year-over-Year Dynamics: 2025 vs 2026 Ridership Trends\n\n\n\n\nKey Takeaways\n\nConsistent ~20% YoY Growth: Solid demand expansion across all seasonal cycles in 2026.\nSummer Commute Peaks: Peak volume exceeded 100K monthly trips during July–August 2026.\nPipeline Agility: Ingested via utils ETL engine without changing a single line of core logic."
   },
   {
     "objectID": "index.html#containerized-spatial-database-postgis",
@@ -96,6 +96,13 @@
     "title": "Citibike Analysis",
     "section": "14. Live Interactive Tableau Dashboard",
     "text": "14. Live Interactive Tableau Dashboard"
+  },
+  {
+    "objectID": "index.html#explore-the-interactive-dashboard",
+    "href": "index.html#explore-the-interactive-dashboard",
+    "title": "Citibike Analysis",
+    "section": "15. Explore the Interactive Dashboard",
+    "text": "15. Explore the Interactive Dashboard\nThe complete interactive visual dashboard is published and accessible live on Tableau Public.\n🔗 Live Tableau Dashboard\n👉 Click Here to Open the Interactive Tableau Dashboard"
   },
   {
     "objectID": "index.html#conclusion-technical-deliverables",
