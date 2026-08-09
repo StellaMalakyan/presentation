@@ -189,6 +189,7 @@ A unified data engine combining **micro-mobility transactions**, **meteorologica
 #| echo: false
 #| message: false
 #| warning: false
+#| eval: false
 import folium
 from folium.plugins import HeatMap, MarkerCluster
 import pandas as pd
@@ -229,6 +230,7 @@ m
 #| echo: false
 #| message: false
 #| warning: false
+#| eval: false
 import plotly.graph_objects as go
 import pandas as pd
 
