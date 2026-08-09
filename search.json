@@ -53,7 +53,7 @@
     "href": "index.html#year-over-year-dynamics-2025-vs-2026-ridership-trends",
     "title": "Citibike Analysis",
     "section": "8. Year-over-Year Dynamics: 2025 vs 2026 Ridership Trends",
-    "text": "8. Year-over-Year Dynamics: 2025 vs 2026 Ridership Trends\n\n\n\n\nKey Takeaways\n\nConsistent ~20% YoY Growth: Solid demand expansion across all seasonal cycles in 2026.\nSummer Commute Peaks: Peak volume exceeded 100K monthly trips during July–August 2026.\nPipeline Agility: Ingested via utils ETL engine without changing a single line of core logic."
+    "text": "8. Year-over-Year Dynamics: 2025 vs 2026 Ridership Trends\n\n\n\n\n                            \n                                            \n\n\n\nKey Takeaways\n\nConsistent ~20% YoY Growth: Solid demand expansion across all seasonal cycles in 2026.\nSummer Commute Peaks: Peak volume exceeded 100K monthly trips during July–August 2026.\nPipeline Agility: Ingested via utils ETL engine without changing a single line of core logic."
   },
   {
     "objectID": "index.html#containerized-spatial-database-postgis",
@@ -96,13 +96,6 @@
     "title": "Citibike Analysis",
     "section": "14. Live Interactive Tableau Dashboard",
     "text": "14. Live Interactive Tableau Dashboard"
-  },
-  {
-    "objectID": "index.html#explore-the-interactive-dashboard",
-    "href": "index.html#explore-the-interactive-dashboard",
-    "title": "Citibike Analysis",
-    "section": "15. Explore the Interactive Dashboard",
-    "text": "15. Explore the Interactive Dashboard\nThe complete interactive visual dashboard is published and accessible live on Tableau Public.\n🔗 Live Tableau Dashboard\n👉 Click Here to Open the Interactive Tableau Dashboard"
   },
   {
     "objectID": "index.html#conclusion-technical-deliverables",
