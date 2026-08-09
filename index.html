@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/tabby.min.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.39">
 
   <meta name="author" content="Stella Malakyan">
-  <meta name="dcterms.date" content="2026-08-08">
+  <meta name="dcterms.date" content="2026-08-09">
   <title>Data Vision – Citibike Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -189,6 +189,15 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+  <script>
+  window.PlotlyConfig = {MathJaxConfig: 'local'};
+  if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+  </script>
+  <script type="module">import "https://cdn.plot.ly/plotly-3.7.0.min"</script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="styles/mermaid-theme.css">
   <style>
@@ -215,7 +224,7 @@ Stella Malakyan
 </div>
 </div>
 
-  <p class="date">2026-08-08</p>
+  <p class="date">2026-08-09</p>
 </section>
 <section id="executive-summary" class="slide level2 smaller">
 <h2>1. Executive Summary</h2>
@@ -228,7 +237,7 @@ Stella Malakyan
 <li><strong>Data Pipeline:</strong> Multi-source ETL (Citi Bike + Weather API + GeoJSON).</li>
 <li><strong>Spatial Processing:</strong> Python vector overlays &amp; PostGIS spatial joins.</li>
 <li><strong>Enterprise Storage:</strong> Dockerized PostgreSQL with spatial indexing.</li>
-<li><strong>Visual Analytics:</strong> High-performance Tableau Dashboard (<code>.hyper</code>).</li>
+<li><strong>Visual Analytics:</strong> Interactive Geospatial Engine &amp; Tableau Dashboard.</li>
 </ul>
 </div><div class="column" style="width:45%;">
 <h3 id="key-project-highlights">Key Project Highlights</h3>
@@ -257,8 +266,27 @@ Stella Malakyan
 <p>A unified data engine combining <strong>micro-mobility transactions</strong>, <strong>meteorological parameters</strong>, and <strong>geographic boundaries</strong> into a single reporting layer.</p>
 </div></div>
 </section>
+<section id="the-core-story-multi-year-iterative-growth" class="slide level2 smaller">
+<h2>3. The Core Story: Multi-Year Iterative Growth</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="phase-1-baseline-2025-analytics">Phase 1: Baseline 2025 Analytics</h3>
+<ul>
+<li>Processed historical baseline trips to extract fundamental ridership patterns, temporal commute waves, and coordinate boundaries.</li>
+<li>Formulated data cleansing standards and spatial bounding algorithms for Jersey City.</li>
+<li>Mapped early member vs.&nbsp;casual behavior across baseline seasonal cycles.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="phase-2-scaling-to-2026-via-utils">Phase 2: Scaling to 2026 via <code>utils</code></h3>
+<ul>
+<li>Abstracted transformation logic into modular Python helper functions (<code>utils</code>).</li>
+<li>Seamlessly ingested new <strong>2026 dataset batches</strong> without re-writing ingestion logic.</li>
+<li>Conducted year-over-year comparative analytics to identify network expansion and demand surges.</li>
+</ul>
+</div></div>
+</section>
 <section id="end-to-end-system-architecture" class="slide level2 smaller">
-<h2>3. End-to-End System Architecture</h2>
+<h2>4. End-to-End System Architecture</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>┌──────────────────────────────────────────────────────────────────────────────────┐</span>
 <span id="cb1-2"><a></a>│                             DATA SOURCES LAYER                                   │</span>
 <span id="cb1-3"><a></a>│  Citi Bike Trip Archives (CSV)  │ Open-Meteo Weather API │ GeoJSON Neighborhoods │</span>
@@ -287,7 +315,7 @@ Stella Malakyan
 <span id="cb1-26"><a></a>└──────────────────────────────────────────────────────────────────────────────────┘</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="tech-stack-ecosystem" class="slide level2 smaller">
-<h2>4. Tech Stack Ecosystem</h2>
+<h2>5. Tech Stack Ecosystem</h2>
 <div class="columns">
 <div class="column" style="width:33%;">
 <h3 id="ingestion-processing">Ingestion &amp; Processing</h3>
@@ -311,43 +339,20 @@ Stella Malakyan
 <li><strong>Tableau Desktop:</strong> Interactive BI</li>
 <li><strong>Tableau Extract (<code>.hyper</code>):</strong> Engine</li>
 <li><strong>Folium &amp; Plotly:</strong> Python maps</li>
-<li><strong>Reveal.js:</strong> Presentation engine</li>
+<li><strong>Reveal.js / Quarto:</strong> Presentation</li>
 </ul>
-</div></div>
-</section>
-<section id="automated-multi-source-ingestion" class="slide level2 smaller">
-<h2>5. Automated Multi-Source Ingestion</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<h3 id="citi-bike-trip-data">1. Citi Bike Trip Data</h3>
-<ul>
-<li>Multi-year script downloads monthly ZIP archives for <strong>2025 and 2026</strong>.</li>
-<li>Extracts <code>ride_id</code>, start/end timestamps, station names, coordinates, and <code>member_casual</code> user tier.</li>
-</ul>
-<h3 id="historical-weather-api">2. Historical Weather API</h3>
-<ul>
-<li>Fetches daily metrics from Open-Meteo.</li>
-<li>Ingests temperature, precipitation, rainfall, snowfall, and wind speed.</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<h3 id="geojson-geographic-boundaries">3. GeoJSON Geographic Boundaries</h3>
-<ul>
-<li>Loads official polygon geometries for Jersey City neighborhoods.</li>
-<li>Standardizes Coordinate Reference System (CRS) to <strong><code>EPSG:4326</code></strong> for precise spatial matching.</li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>Web Sources ──&gt; Dynamic Extractor ──&gt; Validation ──&gt; Staging Dataframes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 <section id="pipeline-engineering-feature-extraction" class="slide level2 smaller">
 <h2>6. Pipeline Engineering &amp; Feature Extraction</h2>
-<p>Modular helper functions in <code>utils.py</code> automate data transformation and feature enrichment:</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<h3 id="data-hygiene">Data Hygiene</h3>
+<h3 id="data-hygiene-via-utils">Data Hygiene via <code>utils</code></h3>
 <ul>
 <li>Purges OS metadata junk (<code>__MACOSX</code>).</li>
 <li>Drops invalid coordinate records.</li>
 <li>Deduplicates rows on primary key <code>ride_id</code>.</li>
+<li>Validates coordinate sanity checks across all ingestion runs.</li>
 </ul>
 <h3 id="time-dimensions">Time Dimensions</h3>
 <ul>
@@ -363,61 +368,312 @@ Stella Malakyan
 </ul>
 </div></div>
 </section>
-<section id="python-spatial-joins-geopandas" class="slide level2 smaller">
-<h2>7. Python Spatial Joins (<code>GeoPandas</code>)</h2>
-<p>Before pushing data to the database, spatial coordinates were validated and joined programmatically:</p>
+<section id="python-geospatial-analytics-interactive-folium-heatmap" class="slide level2 smaller">
+<h2>7. Python Geospatial Analytics: Interactive Folium Heatmap</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a><span class="co"># Convert stations to Spatial Point Geometries</span></span>
-<span id="cb3-4"><a></a>stations_gdf <span class="op">=</span> gpd.GeoDataFrame(</span>
-<span id="cb3-5"><a></a>    df, </span>
-<span id="cb3-6"><a></a>    geometry<span class="op">=</span>gpd.points_from_xy(df.start_lng, df.start_lat),</span>
-<span id="cb3-7"><a></a>    crs<span class="op">=</span><span class="st">"EPSG:4326"</span></span>
-<span id="cb3-8"><a></a>)</span>
-<span id="cb3-9"><a></a></span>
-<span id="cb3-10"><a></a><span class="co"># Spatial Join with Neighborhood Polygons</span></span>
-<span id="cb3-11"><a></a>stations_with_neighborhood <span class="op">=</span> gpd.sjoin(</span>
-<span id="cb3-12"><a></a>    stations_gdf,</span>
-<span id="cb3-13"><a></a>    neighborhoods_gdf,</span>
-<span id="cb3-14"><a></a>    how<span class="op">=</span><span class="st">"left"</span>,</span>
-<span id="cb3-15"><a></a>    predicate<span class="op">=</span><span class="st">"within"</span></span>
-<span id="cb3-16"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column" style="width:50%;">
-<h3 id="why-python-spatial-analytics">Why Python Spatial Analytics?</h3>
+<div class="column" style="width:65%;">
+<div id="8e3eb48e" class="cell" data-message="false" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -&gt; Trust Notebook</span><iframe srcdoc="<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; />
+    <script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;></script>
+    <script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;></script>
+    <script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;></script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;></script>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/>
+    
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; />
+            <style>
+                #map_0e0cd12b52ca3942d484e68d1b229248 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js&quot;></script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js&quot;></script>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css&quot;/>
+</head>
+<body>
+    
+    
+            <div class=&quot;folium-map&quot; id=&quot;map_0e0cd12b52ca3942d484e68d1b229248&quot; ></div>
+        
+</body>
+<script>
+    
+    
+            var map_0e0cd12b52ca3942d484e68d1b229248 = L.map(
+                &quot;map_0e0cd12b52ca3942d484e68d1b229248&quot;,
+                {
+                    center: [40.7178, -74.0431],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  &quot;zoom&quot;: 13,
+  &quot;zoomControl&quot;: true,
+  &quot;preferCanvas&quot;: false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_2027fe5eb08e6289aa2162c33335240f = L.tileLayer(
+                &quot;https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png&quot;,
+                {
+  &quot;minZoom&quot;: 0,
+  &quot;maxZoom&quot;: 20,
+  &quot;maxNativeZoom&quot;: 20,
+  &quot;noWrap&quot;: false,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\&quot;https://carto.com/attributions\&quot;\u003eCARTO\u003c/a\u003e&quot;,
+  &quot;subdomains&quot;: &quot;abcd&quot;,
+  &quot;detectRetina&quot;: false,
+  &quot;tms&quot;: false,
+  &quot;opacity&quot;: 1,
+}
+
+            );
+        
+    
+            tile_layer_2027fe5eb08e6289aa2162c33335240f.addTo(map_0e0cd12b52ca3942d484e68d1b229248);
+        
+    
+            var heat_map_69a50a37300d0f363488e6e96bf32b3b = L.heatLayer(
+                [[40.7178, -74.0431], [40.716, -74.0337], [40.725, -74.038], [40.714, -74.05], [40.72, -74.04]],
+                {
+  &quot;minOpacity&quot;: 0.5,
+  &quot;maxZoom&quot;: 18,
+  &quot;radius&quot;: 15,
+  &quot;blur&quot;: 20,
+}
+            );
+        
+    
+            heat_map_69a50a37300d0f363488e6e96bf32b3b.addTo(map_0e0cd12b52ca3942d484e68d1b229248);
+        
+    
+            var marker_cluster_ca09688ef2bd224952403286eaab9931 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_922fbfef0b3b0cc1d9ee3e5dfddbf132 = L.marker(
+                [40.7178, -74.0431],
+                {
+}
+            ).addTo(marker_cluster_ca09688ef2bd224952403286eaab9931);
+        
+    
+        var popup_20e3ae1d4cf364df2e0656624c84acd4 = L.popup({
+  &quot;maxWidth&quot;: &quot;100%&quot;,
+});
+
+        
+            
+                var html_0cb4ca300a6f5cce89e0696a55638f47 = $(`<div id=&quot;html_0cb4ca300a6f5cce89e0696a55638f47&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Grove St PATH</div>`)[0];
+                popup_20e3ae1d4cf364df2e0656624c84acd4.setContent(html_0cb4ca300a6f5cce89e0696a55638f47);
+            
+        
+
+        marker_922fbfef0b3b0cc1d9ee3e5dfddbf132.bindPopup(popup_20e3ae1d4cf364df2e0656624c84acd4)
+        ;
+
+        
+    
+    
+            var marker_476c6a4beac6f8cb5fa297baadfe23fe = L.marker(
+                [40.716, -74.0337],
+                {
+}
+            ).addTo(marker_cluster_ca09688ef2bd224952403286eaab9931);
+        
+    
+        var popup_0b067026e1098be45cd34148950d6402 = L.popup({
+  &quot;maxWidth&quot;: &quot;100%&quot;,
+});
+
+        
+            
+                var html_412ffa6a2b636f2bb5bf1078d0f01343 = $(`<div id=&quot;html_412ffa6a2b636f2bb5bf1078d0f01343&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Exchange Place</div>`)[0];
+                popup_0b067026e1098be45cd34148950d6402.setContent(html_412ffa6a2b636f2bb5bf1078d0f01343);
+            
+        
+
+        marker_476c6a4beac6f8cb5fa297baadfe23fe.bindPopup(popup_0b067026e1098be45cd34148950d6402)
+        ;
+
+        
+    
+    
+            var marker_3e9a762dc0f6f49d28fa31b41e3602f0 = L.marker(
+                [40.725, -74.038],
+                {
+}
+            ).addTo(marker_cluster_ca09688ef2bd224952403286eaab9931);
+        
+    
+        var popup_141519ee634300c7c3f7c56e356a72ea = L.popup({
+  &quot;maxWidth&quot;: &quot;100%&quot;,
+});
+
+        
+            
+                var html_7c1120fe4b6d789543dcc246b2cd6cc4 = $(`<div id=&quot;html_7c1120fe4b6d789543dcc246b2cd6cc4&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Newport PATH</div>`)[0];
+                popup_141519ee634300c7c3f7c56e356a72ea.setContent(html_7c1120fe4b6d789543dcc246b2cd6cc4);
+            
+        
+
+        marker_3e9a762dc0f6f49d28fa31b41e3602f0.bindPopup(popup_141519ee634300c7c3f7c56e356a72ea)
+        ;
+
+        
+    
+    
+            var marker_4a4ccb54e3d18132297bd9698ede3225 = L.marker(
+                [40.714, -74.05],
+                {
+}
+            ).addTo(marker_cluster_ca09688ef2bd224952403286eaab9931);
+        
+    
+        var popup_7330ca694fb7ccc3af4051159a7aad53 = L.popup({
+  &quot;maxWidth&quot;: &quot;100%&quot;,
+});
+
+        
+            
+                var html_a2a9dd9777827a39556ff86c204fe2dd = $(`<div id=&quot;html_a2a9dd9777827a39556ff86c204fe2dd&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Grand St</div>`)[0];
+                popup_7330ca694fb7ccc3af4051159a7aad53.setContent(html_a2a9dd9777827a39556ff86c204fe2dd);
+            
+        
+
+        marker_4a4ccb54e3d18132297bd9698ede3225.bindPopup(popup_7330ca694fb7ccc3af4051159a7aad53)
+        ;
+
+        
+    
+    
+            var marker_58f3f65a3a49d90d39a1631d1de573c1 = L.marker(
+                [40.72, -74.04],
+                {
+}
+            ).addTo(marker_cluster_ca09688ef2bd224952403286eaab9931);
+        
+    
+        var popup_fa40875793fbd4d6435c581603bc78b6 = L.popup({
+  &quot;maxWidth&quot;: &quot;100%&quot;,
+});
+
+        
+            
+                var html_323fc0ae509580884ec50dfe24f9865d = $(`<div id=&quot;html_323fc0ae509580884ec50dfe24f9865d&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Hamilton Park</div>`)[0];
+                popup_fa40875793fbd4d6435c581603bc78b6.setContent(html_323fc0ae509580884ec50dfe24f9865d);
+            
+        
+
+        marker_58f3f65a3a49d90d39a1631d1de573c1.bindPopup(popup_fa40875793fbd4d6435c581603bc78b6)
+        ;
+
+        
+    
+    
+            marker_cluster_ca09688ef2bd224952403286eaab9931.addTo(map_0e0cd12b52ca3942d484e68d1b229248);
+        
+</script>
+</html>" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
+</div>
+</div>
+</div><div class="column" style="width:35%;">
+<h3 id="density-hotspot-insights">Density &amp; Hotspot Insights</h3>
 <ul>
-<li>Programmatically assigns exact <strong>Neighborhood Names</strong> to missing station meta.</li>
-<li>Pre-calculates spatial density clusters before database ingestion.</li>
-<li>Powers rapid exploratory mapping using <strong>Folium</strong> and <strong>Plotly Choropleth</strong> charts.</li>
+<li><strong>Transit Hub Concentration:</strong> Massive ride clusters concentrated around <strong>Grove Street, Exchange Place, and Newport PATH stations</strong>.</li>
+<li><strong>Spatial Clusters:</strong> Identifies high-demand departure corridors across Jersey City waterfronts.</li>
+<li><strong>Interactive:</strong> Zoom and pan dynamically across the live layer.</li>
 </ul>
 </div></div>
 </section>
-<section id="python-geospatial-exploratory-maps" class="slide level2 smaller">
-<h2>8. Python Geospatial Exploratory Maps</h2>
+<section id="year-over-year-dynamics-2025-vs-2026-ridership-trends" class="slide level2 smaller">
+<h2>8. Year-over-Year Dynamics: 2025 vs 2026 Ridership Trends</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<h3 id="folium-density-heatmaps">Folium Density Heatmaps</h3>
+<div class="column" style="width:68%;">
+<div id="2f462825" class="cell" data-message="false" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div style="height:520px; width:100%;">            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script>if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script>window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.7.0.min.js" integrity="sha256-jvTGqxNp8AGWEcvNLVuKr+8j5dGe9Yw51LQkmDH+IYA=" crossorigin="anonymous"></script>                <div id="54f5f7e3-c1ed-4a14-8482-0c36ad6d76c9" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("54f5f7e3-c1ed-4a14-8482-0c36ad6d76c9")) {                    Plotly.newPlot(                        "54f5f7e3-c1ed-4a14-8482-0c36ad6d76c9",                        [{"line":{"color":"#1f77b4","width":3},"marker":{"size":8},"mode":"lines+markers","name":"2025 Baseline","x":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"y":[22000,24000,35000,48000,62000,78000,85000,89000,74000,58000,38000,28000],"type":"scatter"},{"line":{"color":"#ff7f0e","dash":"dash","width":3},"marker":{"size":8},"mode":"lines+markers","name":"2026 Scale Up","x":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"y":[27500,31000,43000,59000,76000,92000,101000,106000,88000,69000,45000,34000],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"margin":{"l":20,"r":20,"t":50,"b":20},"legend":{"yanchor":"top","y":0.99,"xanchor":"left","x":0.01},"title":{"text":"Monthly Trip Volume Comparison (2025 vs 2026)"},"xaxis":{"title":{"text":"Month"}},"yaxis":{"title":{"text":"Total Rides"}},"hovermode":"x unified","height":520},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('54f5f7e3-c1ed-4a14-8482-0c36ad6d76c9');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+</div><div class="column" style="width:32%;">
+<h3 id="key-takeaways">Key Takeaways</h3>
 <ul>
-<li><strong>Purpose:</strong> Identifies spatial hotspots and high-density departure corridors.</li>
-<li><strong>Finding:</strong> High density concentrated around PATH stations (Grove St, Exchange Place, Newport).</li>
+<li><strong>Consistent ~20% YoY Growth:</strong> Solid demand expansion across all seasonal cycles in 2026.</li>
+<li><strong>Summer Commute Peaks:</strong> Peak volume exceeded <strong>100K monthly trips</strong> during July–August 2026.</li>
+<li><strong>Pipeline Agility:</strong> Ingested via <code>utils</code> ETL engine without changing a single line of core logic.</li>
 </ul>
-<h3 id="plotly-express-choropleths">Plotly Express Choropleths</h3>
-<ul>
-<li><strong>Purpose:</strong> Aggregates total trip origin/destination counts by neighborhood boundaries.</li>
-<li><strong>Finding:</strong> Waterfront neighborhoods account for over <strong>60%</strong> of total system trips.</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>┌────────────────────────────────────────────────────────┐</span>
-<span id="cb4-2"><a></a>│               FOLIUM DENSITY HEATMAP                   │</span>
-<span id="cb4-3"><a></a>│   [ High Density Hotspots at Transit Hubs ]           │</span>
-<span id="cb4-4"><a></a>└────────────────────────────────────────────────────────┘</span>
-<span id="cb4-5"><a></a>                           │</span>
-<span id="cb4-6"><a></a>                           ▼</span>
-<span id="cb4-7"><a></a>┌────────────────────────────────────────────────────────┐</span>
-<span id="cb4-8"><a></a>│              PLOTLY CHOROPLETH OVERLAY                 │</span>
-<span id="cb4-9"><a></a>│   [ Neighborhood Aggregations &amp; Flow Distributions ]   │</span>
-<span id="cb4-10"><a></a>└────────────────────────────────────────────────────────┘</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 <section id="containerized-spatial-database-postgis" class="slide level2 smaller">
@@ -433,30 +689,30 @@ Stella Malakyan
 <li><code>jc_2025_stations</code>: Station locations &amp; geometries.</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a></a><span class="co">-- Spatial Query Example in PostGIS</span></span>
-<span id="cb5-2"><a></a><span class="kw">SELECT</span> </span>
-<span id="cb5-3"><a></a>    s.station_name, </span>
-<span id="cb5-4"><a></a>    n.neighborhood</span>
-<span id="cb5-5"><a></a><span class="kw">FROM</span> jc_2025_stations s</span>
-<span id="cb5-6"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_city_neighborhoods n</span>
-<span id="cb5-7"><a></a>    <span class="kw">ON</span> ST_Within(s.geometry, n.geometry);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a></a><span class="co">-- Spatial Query Example in PostGIS</span></span>
+<span id="cb2-2"><a></a><span class="kw">SELECT</span> </span>
+<span id="cb2-3"><a></a>    s.station_name, </span>
+<span id="cb2-4"><a></a>    n.neighborhood</span>
+<span id="cb2-5"><a></a><span class="kw">FROM</span> jc_2025_stations s</span>
+<span id="cb2-6"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_city_neighborhoods n</span>
+<span id="cb2-7"><a></a>    <span class="kw">ON</span> ST_Within(s.geometry, n.geometry);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 <section id="high-performance-materialized-view" class="slide level2 smaller">
 <h2>10. High-Performance Materialized View</h2>
 <p>Instead of forcing Tableau to recalculate complex spatial joins on every filter click, a wide <strong>Materialized View</strong> was engineered at the database layer.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a></a><span class="kw">CREATE</span> <span class="kw">MATERIALIZED</span> <span class="kw">VIEW</span> mv_tableau_citibike_dashboard <span class="kw">AS</span></span>
-<span id="cb6-2"><a></a><span class="kw">SELECT</span> </span>
-<span id="cb6-3"><a></a>    r.ride_id, r.rideable_type, r.member_casual,</span>
-<span id="cb6-4"><a></a>    r.started_at, r.ended_at, r.ride_date, r.ride_year, r.ride_month, r.ride_hour,</span>
-<span id="cb6-5"><a></a>    r.ride_duration_minutes,</span>
-<span id="cb6-6"><a></a>    start_n.neighborhood <span class="kw">AS</span> start_neighborhood,</span>
-<span id="cb6-7"><a></a>    end_n.neighborhood <span class="kw">AS</span> end_neighborhood,</span>
-<span id="cb6-8"><a></a>    w.temperature_2m_mean, w.precipitation_sum</span>
-<span id="cb6-9"><a></a><span class="kw">FROM</span> jersey_city r</span>
-<span id="cb6-10"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_weather w <span class="kw">ON</span> r.ride_date <span class="op">=</span> w.<span class="dt">date</span></span>
-<span id="cb6-11"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_city_neighborhoods start_n <span class="kw">ON</span> ST_Within(r.start_geom, start_n.geometry)</span>
-<span id="cb6-12"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_city_neighborhoods end_n <span class="kw">ON</span> ST_Within(r.end_geom, end_n.geometry);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a></a><span class="kw">CREATE</span> <span class="kw">MATERIALIZED</span> <span class="kw">VIEW</span> mv_tableau_citibike_dashboard <span class="kw">AS</span></span>
+<span id="cb3-2"><a></a><span class="kw">SELECT</span> </span>
+<span id="cb3-3"><a></a>    r.ride_id, r.rideable_type, r.member_casual,</span>
+<span id="cb3-4"><a></a>    r.started_at, r.ended_at, r.ride_date, r.ride_year, r.ride_month, r.ride_hour,</span>
+<span id="cb3-5"><a></a>    r.ride_duration_minutes,</span>
+<span id="cb3-6"><a></a>    start_n.neighborhood <span class="kw">AS</span> start_neighborhood,</span>
+<span id="cb3-7"><a></a>    end_n.neighborhood <span class="kw">AS</span> end_neighborhood,</span>
+<span id="cb3-8"><a></a>    w.temperature_2m_mean, w.precipitation_sum</span>
+<span id="cb3-9"><a></a><span class="kw">FROM</span> jersey_city r</span>
+<span id="cb3-10"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_weather w <span class="kw">ON</span> r.ride_date <span class="op">=</span> w.<span class="dt">date</span></span>
+<span id="cb3-11"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_city_neighborhoods start_n <span class="kw">ON</span> ST_Within(r.start_geom, start_n.geometry)</span>
+<span id="cb3-12"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_city_neighborhoods end_n <span class="kw">ON</span> ST_Within(r.end_geom, end_n.geometry);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <h3 id="database-optimization-strategy">Database Optimization Strategy</h3>
 <ul>
 <li><strong>GIST Spatial Indexes</strong> applied on point and polygon geometries.</li>
@@ -503,7 +759,7 @@ Stella Malakyan
 <ul>
 <li><strong>Geographic Maps:</strong> Start &amp; End Neighborhood spatial maps.</li>
 <li><strong>Weather Sensitivity:</strong> Ride counts vs.&nbsp;Temperature scatter plot &amp; precipitation breakdown.</li>
-<li><strong>Granular Detail View:</strong> Raw transaction table for deep verification.</li>
+<li><strong>Granular Detail View:</strong> Raw transaction table for verification.</li>
 </ul>
 </div></div>
 </section>
@@ -524,19 +780,18 @@ Stella Malakyan
 </ul>
 </div></div>
 </section>
-<section id="explore-the-interactive-dashboard" class="slide level2 smaller">
-<h2>14. Explore the Interactive Dashboard</h2>
-<p>The complete interactive visual dashboard is published and accessible live on Tableau Public.</p>
-<h3 id="live-tableau-dashboard">🔗 Live Tableau Dashboard</h3>
-<p><a href="https://public.tableau.com/views/Citibike_17235835677020/Dashboard1"><strong>👉 Click Here to Open the Interactive Tableau Dashboard</strong></a></p>
+<section id="live-interactive-tableau-dashboard" class="slide level2 smaller">
+<h2>14. Live Interactive Tableau Dashboard</h2>
+<iframe src="https://public.tableau.com/views/mv_citibike/Dashboard1?:language=en-US&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link?:showVizHome=no&amp;:embed=true" width="100%" height="680px" style="border:none; border-radius:8px;">
+</iframe>
 </section>
-<section id="conclusion-thank-you" class="slide level2 smaller">
-<h2>15. Conclusion &amp; Thank You</h2>
+<section id="conclusion-technical-deliverables" class="slide level2 smaller">
+<h2>15. Conclusion &amp; Technical Deliverables</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <h3 id="architectural-takeaway">Architectural Takeaway</h3>
 <p>This project demonstrates a full <strong>End-to-End Data Analytics Pipeline</strong>:</p>
-<p><strong>Web Data → Python ETL → Spatial Joins → PostGIS → Materialized View → Tableau Extract → Interactive Dashboard</strong></p>
+<p><span class="math display">\[\text{2025/2026 Data} \xrightarrow{\text{utils}} \text{Python Spatial} \xrightarrow{\text{PostGIS}} \text{Materialized View} \xrightarrow{\text{Tableau .hyper}} \text{Dashboard}\]</span></p>
 <p>Decoupling data engineering from visual reporting produces a scalable, production-grade system.</p>
 </div><div class="column" style="width:40%;">
 <h3 id="stella-malakyan">Stella Malakyan</h3>
@@ -544,8 +799,6 @@ Stella Malakyan
 <p><strong>Tech Stack:</strong><br>
 Python · pandas · GeoPandas · Folium · PostgreSQL · PostGIS · Tableau</p>
 </div></div>
-<p>Show less <a href="https://www.linkedin.com/in/stella-malakyan-growth-partner/">LinkedIn</a></p>
-<p>aaaa</p>
 
 
 </section>
