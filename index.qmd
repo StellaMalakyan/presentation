@@ -230,7 +230,6 @@ m
 #| echo: false
 #| message: false
 #| warning: false
-#| eval: false
 import plotly.graph_objects as go
 import pandas as pd
 
@@ -405,17 +404,7 @@ LEFT JOIN jersey_city_neighborhoods end_n ON ST_Within(r.end_geom, end_n.geometr
 <iframe src="https://public.tableau.com/views/mv_citibike/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link?:showVizHome=no&:embed=true" width="100%" height="680px" style="border:none; border-radius:8px;"></iframe>
 
 ---
----
 
-## 15. Explore the Interactive Dashboard {.smaller}
-
-The complete interactive visual dashboard is published and accessible live on Tableau Public.
-
-### 🔗 Live Tableau Dashboard
-
-[**👉 Click Here to Open the Interactive Tableau Dashboard**](https://public.tableau.com/views/mv_citibike/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
-
----
 
 ## 15. Conclusion & Technical Deliverables {.smaller}
 
