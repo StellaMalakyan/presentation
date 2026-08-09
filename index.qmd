@@ -413,7 +413,6 @@ The complete interactive visual dashboard is published and accessible live on Ta
 
 [**👉 Click Here to Open the Interactive Tableau Dashboard**](https://public.tableau.com/views/mv_citibike/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-
 ---
 
 ## 15. Conclusion & Technical Deliverables {.smaller}
