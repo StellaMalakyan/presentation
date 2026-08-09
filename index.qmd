@@ -27,7 +27,7 @@ format:
           </style>
     
 ---
-![](img/image.png){width=95%}
+
 
 ## 1. Executive Summary {.smaller}
 
