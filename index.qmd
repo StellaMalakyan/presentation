@@ -419,7 +419,9 @@ The complete interactive visual dashboard is published and accessible live on Ta
 
 ::: {.columns}
 ::: {.column width="60%"}
+
 ### Architectural Takeaway
+
 This project demonstrates a full **End-to-End Data Analytics Pipeline**:
 
 $$\text{2025/2026 Data} \xrightarrow{\text{utils}} \text{Python Spatial} \xrightarrow{\text{PostGIS}} \text{Materialized View} \xrightarrow{\text{Tableau .hyper}} \text{Dashboard}$$
@@ -428,7 +430,9 @@ Decoupling data engineering from visual reporting produces a scalable, productio
 :::
 
 ::: {.column width="40%"}
+
 ### Stella Malakyan
+
 *Data Analytics Portfolio Project*
 
 **Tech Stack:**  
