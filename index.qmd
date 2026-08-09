@@ -405,7 +405,7 @@ LEFT JOIN jersey_city_neighborhoods end_n ON ST_Within(r.end_geom, end_n.geometr
 ---
 ---
 
-## 14. Explore the Interactive Dashboard {.smaller}
+## 15. Explore the Interactive Dashboard {.smaller}
 
 The complete interactive visual dashboard is published and accessible live on Tableau Public.
 
@@ -437,7 +437,6 @@ Python · pandas · GeoPandas · Folium · PostgreSQL · PostGIS · Tableau
 :::
 :::
 
-S. M.
 
 
 
